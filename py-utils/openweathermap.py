@@ -11,7 +11,7 @@ LOT = "37.6156"
 LAT = "55.7522"
 EXCLUDE_PART = "minutely,hourly,alerts"
 
-URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lat={0}&lon={1}&exclude={2}&appid={3}".format(LAT, LOT, EXCLUDE_PART,
+URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lat={0}&lon={1}&exclude={2}&appid={3}".format(LAT, LOT, EXCLUDE_PART, API_KEY)
 																									 API_KEY)
 response = requests.get(URL)
 
