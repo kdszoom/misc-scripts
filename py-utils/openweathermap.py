@@ -4,9 +4,9 @@ from datetime import datetime
 
 # Use api https://openweathermap.org/api/one-call-api
 # Get Location params
-# http://api.openweathermap.org/data/2.5/weather?q=Moscow,ru&APPID={api-key}
+# http://api.openweathermap.org/data/2.5/weather?q=Moscow,ru&APPID={API_KEY}
 
-API_KEY = "{your-api-key}"
+API_KEY = "{API_KEY}"
 LOT = "37.6156"
 LAT = "55.7522"
 EXCLUDE_PART = "minutely,hourly,alerts"
@@ -18,6 +18,10 @@ response = requests.get(URL)
 
 if response.status_code == 200:
 	forecast = json.loads(response.text)
+
+	for i in forecast['daily']:
+		print(i['temp']['morn'])
+
 	daily_slice = forecast['daily'][1:5]
 	max_morn_temp = forecast['daily'][0]['temp']['morn']
 	dt = forecast['daily'][0]['dt']
