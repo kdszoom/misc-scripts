@@ -13,7 +13,7 @@ EXCLUDE_PART = "minutely,hourly,alerts"
 
 QUERY = f'units=metric&lat={LAT}&lon={LOT}&exclude={EXCLUDE_PART}&appid={API_KEY}'
 URL = f'https://api.openweathermap.org/data/2.5/onecall?{QUERY}'
-																									 API_KEY)
+
 response = requests.get(URL)
 
 if response.status_code == 200:
