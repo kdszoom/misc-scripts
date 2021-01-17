@@ -18,10 +18,6 @@ response = requests.get(URL)
 
 if response.status_code == 200:
 	forecast = json.loads(response.text)
-
-	for i in forecast['daily']:
-		print(i['temp']['morn'])
-
 	daily_slice = forecast['daily'][1:5]
 	max_morn_temp = forecast['daily'][0]['temp']['morn']
 	dt = forecast['daily'][0]['dt']
