@@ -24,6 +24,6 @@ if response.status_code == 200:
 		if day['temp']['morn'] > max_morn_temp:
 			max_morn_temp = day['temp']['morn']
 			dt = day['dt']
-	print("Maximum temperature in the morning {0} at {1}".format(max_morn_temp, datetime.utcfromtimestamp(dt).strftime('%Y-%m-%d %H:%M:%S')))
+	print("Maximum morn temp for the next 5 days {} at {}".format(max_morn_temp, datetime.utcfromtimestamp(dt).strftime('%Y-%m-%d %H:%M:%S')))
 else:
 	exit(1)
