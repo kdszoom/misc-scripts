@@ -18,13 +18,16 @@ response = requests.get(URL)
 
 if response.status_code == 200:
 	forecast = json.loads(response.text)
-	daily_slice = forecast['daily'][1:5]
-	max_morn_temp = forecast['daily'][0]['temp']['morn']
-	dt = forecast['daily'][0]['dt']
+	
+	max_morn_temp = forecast['current']['temp']
+	dt = forecast['current']['dt']
+
+	daily_slice = forecast['daily'][0:5]
 	for day in daily_slice:
 		if day['temp']['morn'] > max_morn_temp:
 			max_morn_temp = day['temp']['morn']
 			dt = day['dt']
+
 	print("Maximum morn temp for the next 5 days {} at {}".format(max_morn_temp, datetime.utcfromtimestamp(dt).strftime('%Y-%m-%d %H:%M:%S')))
 else:
 	exit(1)
